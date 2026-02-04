@@ -1,19 +1,34 @@
-# fastapi-clean-architecture
-API REST Profissional (AUTH + CRUD) com FastAPI, com foco em boas práticas usadas em ambientes corporativos.
+# FastAPI Clean Architecture
 
-## Funcionalidades
-- CRUD básico de usuários
-- Hash de senha
-- Testes automatizados
-- Docker ready
+Professional REST API (AUTH + CRUD) built with FastAPI, focused on best practices used in corporate backend development.
 
-## Stack
-- Python 3.11
+## Features
+
+- Basic user CRUD
+- Password hashing
+- Automated tests
+- Docker support
+- Clean modular architecture
+
+## Tech Stack
+
+- Python 3.11+
 - FastAPI
 - SQLAlchemy
 - Pytest
-- Docker
+- Docker / Docker Compose
 
-## Como rodar
+## Architecture
+
+This project demonstrates a clean architecture structure:
+- Separation of concerns
+- Easy to extend
+- Testable modules
+- Company-style code layout
+
+## Getting Started
+
+To build and run the app:
+
 ```bash
 docker-compose up --build
