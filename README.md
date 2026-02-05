@@ -108,7 +108,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
 ---
 
-## RUNNING WITH DOCKER
+## Running With Docker
 
 Command:
 
@@ -122,7 +122,7 @@ http://localhost:8000/docs
 
 ---
 
-## RUNNING TESTS
+## Running Tests
 
 Command:
 
@@ -135,7 +135,7 @@ Tests include:
 
 ---
 
-## HEALTH CHECK
+## Health Check
 
 Endpoint:
 GET /health
@@ -150,7 +150,7 @@ Used for:
 
 ---
 
-## PROJECT INTENT
+## Project Intent
 
 This repository is not a tutorial.
 
@@ -164,7 +164,7 @@ Code from real commercial projects is intentionally omitted due to confidentiali
 
 ---
 
-## GIT FLOW
+## GIT Flow
 
 - main : protected branch, stable versions only
 - dev : development branch
@@ -174,8 +174,6 @@ All changes go through Pull Requests.
 
 ---
 
-## LICENSE
+## License
 
 MIT
-
----
