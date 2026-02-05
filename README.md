@@ -74,8 +74,8 @@ Authentication is based on **JWT access tokens**.
 | GET   | `/api/v1/users/me`      | Get current user profile |
 
 All protected endpoints require:
-Authorization: Bearer <access_token>
-Passwords are hashed using **bcrypt**.
+- Authorization: Bearer <access_token>
+- Passwords are hashed using **bcrypt**.
 
 ---
 
