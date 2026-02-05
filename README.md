@@ -1,41 +1,180 @@
+![CI](https://github.com/alexanderterra/fastapi-clean-architecture/actions/workflows/ci.yml/badge.svg)
+
 # FastAPI Clean Architecture
 
-Professional REST API (AUTH + CRUD) built with FastAPI, focused on best practices used in corporate backend development.
+Professional backend project built with **FastAPI**, following clean architecture principles and real-world enterprise patterns.
+
+This repository is intended as a **portfolio-grade example**, demonstrating how production-ready APIs are structured, secured and documented.
+
+---
 
 ## Features
 
-- Basic user CRUD
-- Password hashing
+- REST API built with FastAPI
+- JWT authentication (access token)
+- Clean separation between API, services and repositories
+- MySQL for transactional data
+- MongoDB for audit logs
+- Docker & Docker Compose ready
 - Automated tests
-- Docker support
-- Clean modular architecture
+- Versioned API (`/api/v1`)
+- Health check endpoint for monitoring
+
+---
 
 ## Tech Stack
 
-- Python 3.11+
-- FastAPI
-- SQLAlchemy
-- Pytest
-- Docker / Docker Compose
+- **Python 3.11**
+- **FastAPI**
+- **SQLAlchemy**
+- **MySQL**
+- **MongoDB**
+- **JWT (python-jose)**
+- **Docker / Docker Compose**
+- **Pytest**
 
-## Architecture
-
-This project demonstrates a clean architecture structure:
-- Separation of concerns
-- Easy to extend
-- Testable modules
-- Company-style code layout
+---
 
 ## Architecture Overview
-- FastAPI for REST APIs
-- MySQL for transactional data
-- MongoDB for audit logs
-- JWT authentication
-- Clean separation between API, services and repositories
 
-## Getting Started
+This project follows a **clean architecture–inspired structure**:
 
-To build and run the app:
+app/
+├── api/ # HTTP layer (FastAPI routers)
+├── core/ # Security, config and shared dependencies
+├── db/ # Database connections (MySQL / MongoDB)
+├── models/ # SQLAlchemy models
+├── schemas/ # Pydantic schemas
+├── repositories/ # Data access layer
+├── services/ # Business logic
+└── main.py # Application entry point
 
-```bash
+
+### Why this approach?
+
+- Easy to test
+- Easy to extend
+- Clear responsibility per layer
+- Matches patterns used in real companies
+
+---
+
+## Authentication
+
+Authentication is based on **JWT access tokens**.
+
+### Endpoints
+
+| Method | Endpoint             | Description              |
+|------:|----------------------|--------------------------|
+| POST  | `/api/v1/auth/register` | Register new user        |
+| POST  | `/api/v1/auth/login`    | Authenticate user        |
+| GET   | `/api/v1/users/`        | Get users                |
+| GET   | `/api/v1/users/me`      | Get current user profile |
+
+All protected endpoints require:
+Authorization: Bearer <access_token>
+Passwords are hashed using **bcrypt**.
+
+---
+
+## Databases
+
+### MySQL
+Used for:
+- Users
+- Core transactional data
+
+### MongoDB
+Used for:
+- Audit logs
+- Authentication events
+- Non-relational data
+
+This hybrid approach reflects real-world system design.
+
+---
+
+## Environment Configuration
+
+Create a `.env` file based on the example below:
+
+```env
+DATABASE_URL=mysql+pymysql://user:password@localhost/app
+MONGODB_URI=mongodb://localhost:27017
+SECRET_KEY=super-secret-key
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
+---
+
+## RUNNING WITH DOCKER
+
+Command:
+
 docker-compose up --build
+
+API URL:
+http://localhost:8000
+
+Swagger / OpenAPI:
+http://localhost:8000/docs
+
+---
+
+## RUNNING TESTS
+
+Command:
+
+pytest
+
+Tests include:
+- Authentication flow
+- User registration
+- Protected endpoints
+
+---
+
+## HEALTH CHECK
+
+Endpoint:
+GET /health
+
+Response:
+{ "status": "ok" }
+
+Used for:
+- Docker health checks
+- Kubernetes liveness/readiness probes
+- Monitoring systems
+
+---
+
+## PROJECT INTENT
+
+This repository is not a tutorial.
+
+It is a professional demonstration project designed to:
+- Showcase backend architecture skills
+- Demonstrate JWT authentication and security
+- Reflect how real APIs are structured in production
+- Serve as a reference for technical interviews
+
+Code from real commercial projects is intentionally omitted due to confidentiality.
+
+---
+
+## GIT FLOW
+
+- main : protected branch, stable versions only
+- dev : development branch
+- feature/* : feature branches
+
+All changes go through Pull Requests.
+
+---
+
+## LICENSE
+
+MIT
+
+---

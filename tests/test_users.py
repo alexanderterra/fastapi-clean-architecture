@@ -1,9 +1,4 @@
-from fastapi.testclient import TestClient
-from app.main import app
-
-client = TestClient(app)
-
-
-def test_create_user():
-    response = client.post("/users/?email=test@test.com&password=123")
+def test_get_profile(client, auth_headers):
+    response = client.get("/api/v1/users/me", headers=auth_headers)
     assert response.status_code == 200
+    assert "email" in response.json()
