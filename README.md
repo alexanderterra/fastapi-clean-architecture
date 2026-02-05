@@ -26,6 +26,13 @@ This project demonstrates a clean architecture structure:
 - Testable modules
 - Company-style code layout
 
+## Architecture Overview
+- FastAPI for REST APIs
+- MySQL for transactional data
+- MongoDB for audit logs
+- JWT authentication
+- Clean separation between API, services and repositories
+
 ## Getting Started
 
 To build and run the app:
