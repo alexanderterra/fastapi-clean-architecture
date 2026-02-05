@@ -39,16 +39,17 @@ This repository is intended as a **portfolio-grade example**, demonstrating how 
 
 This project follows a **clean architecture–inspired structure**:
 
+```text
 app/
-├── api/ # HTTP layer (FastAPI routers)
-├── core/ # Security, config and shared dependencies
-├── db/ # Database connections (MySQL / MongoDB)
-├── models/ # SQLAlchemy models
-├── schemas/ # Pydantic schemas
-├── repositories/ # Data access layer
-├── services/ # Business logic
-└── main.py # Application entry point
-
+├── api/            # HTTP layer (FastAPI routers)
+├── core/           # Security, config and shared dependencies
+├── db/             # Database connections (MySQL / MongoDB)
+├── models/         # SQLAlchemy models
+├── schemas/        # Pydantic schemas
+├── repositories/   # Data access layer
+├── services/       # Business logic
+└── main.py         # Application entry point
+```
 
 ### Why this approach?
 
